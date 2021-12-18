@@ -23,3 +23,4 @@ Route::get('/', [SiteController::class,'index']);
 Route::get('/catalog', [Controllers\CatalogController::class,'index']);
 Route::get('/product', [Controllers\ProductController::class,'index']);
 Route::get('/login', [Controllers\UserController::class,'index']);
+Route::get('/cart', [Controllers\CartController::class,'index']);

@@ -51,9 +51,8 @@
             </div>
             <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
                 <div class="cart box_1">
-                    <a href="checkout.html">
+                    <a href="cart">
                         <h3> <div class="total">
-
                                 <span class="simpleCart_total"></span></div>
                             <img src="{{ asset('images/cart.png') }}" alt=""/></h3>
                     </a>
