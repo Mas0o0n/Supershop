@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', [SiteController::class,'index']);
+Route::get('/catalog', [Controllers\CatalogController::class,'index']);
+Route::get('/product', [Controllers\ProductController::class,'index']);
+Route::get('/login', [Controllers\UserController::class,'index']);
