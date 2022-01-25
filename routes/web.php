@@ -14,13 +14,18 @@ use App\Http\Controllers;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//where('name','[A-Za-z]+' )
 //Route::get('/', function () {
 //    return view('welcome');
 //});
 
-Route::get('/', [SiteController::class,'index']);
-Route::get('/catalog', [Controllers\CatalogController::class,'index']);
-Route::get('/product', [Controllers\ProductController::class,'index']);
-Route::get('/login', [Controllers\UserController::class,'index']);
-Route::get('/cart', [Controllers\CartController::class,'index']);
+Route::get('/', 'SiteController@index')->name('home');
+
+Route::get('/catalog', 'CatalogController@index')->name('catalog');
+Route::get('/category/{name}/{page?}', 'CatalogController@category')->where('id', '[0-9]+' )->name('category');
+
+Route::get('/product/{id}', 'ProductController@product')->where('id', '[0-9]+')->name('product');
+
+Route::get('/login', [Controllers\UserController::class, 'index'])->name('login');
+
+Route::get('/cart', [Controllers\CartController::class, 'index'])->name('cart');

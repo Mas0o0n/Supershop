@@ -1,7 +1,6 @@
 @extends('layouts.base')
 @section('content')
-
-    <div class="breadcrumbs">
+        <div class="breadcrumbs">
         <div class="container">
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
                 <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
@@ -10,29 +9,24 @@
         </div>
     </div>
 
-
     <div class="products">
         <div class="container">
-            <h2>Last Products</h2>
-
-            <div class="col-md-9">
-                <div class="content-top1">
-
-            @foreach( $products as $product )
-                @include('product.card')
+            <h2>{{ $category->name }}</h2>
+            @foreach($products as $product)
+            @include('product.card')
             @endforeach
 
-                </div>
-            </div>
+
+
+
 
             <div>
-            <h2> All categories</h2>
+            <h2>Categories</h2>
               </div>
             <div class="col-md-3 product-bottom">
                 <!--categories-->
                 @foreach($categories as $category)
                 <div class=" rsidebar span_1_of_left">
-
                        <a href="/category/{{ $category->id }}"> <h3 class="cate">{{ $category->name }}</h3> </a
                     @endforeach()
                 </div>

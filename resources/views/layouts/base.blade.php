@@ -2,7 +2,7 @@
 <html>
 <head>
     @section('head')
-            <title>Youth Fashion A Ecommerce Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+            <title>Supershop</title>
             <link href="{{ asset('css/bootstrap-3.1.1.min.css') }}" rel='stylesheet' type='text/css' />
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -62,7 +62,7 @@
             </div>
             <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
                 <span><i class="glyphicon glyphicon-phone"></i>085 596 234</span>
-                <p>Call me</p>
+                <p>Call us</p>
             </div>
             <div class="col-sm-2 search animated wow fadeInRight" data-wow-delay=".5s">
                 <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a>
@@ -91,7 +91,7 @@
                         <ul class="nav navbar-nav nav_1">
                             <li><a href="/">Home</a></li>
                             <li class="dropdown mega-dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Women<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
                                 <div class="dropdown-menu mega-dropdown-menu">
                                     <div class="container-fluid">
                                         <!-- Tab panes -->
@@ -112,34 +112,11 @@
 
                                 </div>
                             </li>
-                            <li class="dropdown mega-dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Men<span class="caret"></span></a>
-                                <div class="dropdown-menu mega-dropdown-menu">
-                                    <div class="container-fluid">
-                                        <!-- Tab panes -->
-                                        <div class="tab-content">
-                                            <div class="tab-pane active" id="men">
-                                                <ul class="nav-list list-inline">
-                                                    <li><a href="men.html"><img src="images/t10.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="men.html"><img src="images/t2.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="men.html"><img src="images/t3.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="men.html"><img src="images/t4.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="men.html"><img src="images/t5.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="men.html"><img src="images/t6.jpg" class="img-responsive" alt=""/></a></li>
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- Nav tabs -->
-
-                                </div>
-                            </li>
-                            <li><a href="catalog">Catalog</a></li>
+                           <li><a href="/catalog">Catalog</a></li>
+                           <li class="last"><a href="contact.html">Contact Us</a></li>
                             <li><a href="login">Log In</a></li>
-                            <li class="last"><a href="contact.html">Contact</a></li>
                         </ul>
-                    </div><!-- /.navbar-collapse -->
+                    </div>
 
                 </nav>
             </div>
@@ -186,9 +163,7 @@
 
 
 <!--content-->
-@section('content')
-
-@show
+@yield('content')
 
 <!--footer-->
 @section('footer')
