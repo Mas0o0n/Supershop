@@ -27,22 +27,17 @@ class CatalogController extends Controller
 
     public function index() {
         $categories = $this->getCategories();
-        $products = Product::get();
+        $products = Product::latest('id')->get();
 
         return view('catalog.index',compact('categories', 'products'));
     }
 
 
     public function category($categoryId) {
-
         $categories = $this->getCategories();
         $category = $this->getCategoryById($categoryId);
-
         $products = Category::find($categoryId)->products;
-
-
-        return view('catalog.category', compact('category','categories','products'));
-
+        return view('catalog.category',['categoryId'=>$categoryId], compact('category','categories','products'));
     }
 
 

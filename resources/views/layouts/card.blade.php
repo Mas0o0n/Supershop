@@ -7,10 +7,12 @@
                 <h3><a href="/product/{{$product->id}}">{{$product->name}}</a></h3>
                 <div class="price">
                     <h5 class="item_price">${{$product->price}}</h5>
-                    <a href="#" class="item_add">Add To Cart</a>
-                    <div class="clearfix"> </div>
-
-        </div>
+                    <form action="{{ route('cart-add', $product->id )}}" method="POST">
+                        <button type="submit" class="item_add">Add To Cart</button>
+                    @csrf
+                    </form>
+                        <div class="clearfix"> </div>
+                </div>
         <div class="clearfix"> </div>
     </div>
 </div>

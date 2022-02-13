@@ -4,8 +4,8 @@
     <div class="breadcrumbs">
         <div class="container">
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInLeft;">
-                <li><a href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-                <li class="active">Single</li>
+                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+                <li class="active">Catalog</li>
             </ol>
         </div>
     </div>
@@ -14,15 +14,12 @@
     <div class="products">
         <div class="container">
             <h2>Last Products</h2>
-
-            <div class="col-md-9">
+              <div class="col-md-9">
                 <div class="content-top1">
-
             @foreach( $products as $product )
-                @include('product.card')
+                @include('layouts.card')
             @endforeach
-
-                </div>
+               </div>
             </div>
 
             <div>
@@ -31,8 +28,7 @@
             <div class="col-md-3 product-bottom">
                 <!--categories-->
                 @foreach($categories as $category)
-                <div class=" rsidebar span_1_of_left">
-
+                <div class="rsidebar span_1_of_left">
                        <a href="/category/{{ $category->id }}"> <h3 class="cate">{{ $category->name }}</h3> </a
                     @endforeach()
                 </div>

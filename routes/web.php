@@ -21,11 +21,14 @@ use App\Http\Controllers;
 
 Route::get('/', 'SiteController@index')->name('home');
 
+Route::get('/cart', 'CartController@index')->name('cart');
+Route::post('/cart/add/{id}', 'CartController@cartAdd')->name('cart-add');
+
 Route::get('/catalog', 'CatalogController@index')->name('catalog');
-Route::get('/category/{name}/{page?}', 'CatalogController@category')->where('id', '[0-9]+' )->name('category');
+Route::get('/category/{id}/{page?}', 'CatalogController@category')->where('id', '[0-9]+' )->name('category');
 
 Route::get('/product/{id}', 'ProductController@product')->where('id', '[0-9]+')->name('product');
 
 Route::get('/login', [Controllers\UserController::class, 'index'])->name('login');
 
-Route::get('/cart', [Controllers\CartController::class, 'index'])->name('cart');
+

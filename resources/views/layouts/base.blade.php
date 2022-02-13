@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     @section('head')
-            <title>Supershop</title>
+            <title>SuperShop</title>
             <link href="{{ asset('css/bootstrap-3.1.1.min.css') }}" rel='stylesheet' type='text/css' />
             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
             <script src="{{ asset('js/jquery.min.js') }}"></script>
@@ -47,11 +48,11 @@
     <div class="header-top">
         <div class="container">
             <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
-                <h1><a href="/">Super <span>Shop</span></a></h1>
+                <h1><a href="/">Super<span>Shop</span></a></h1>
             </div>
             <div class="col-sm-4 world animated wow fadeInRight" data-wow-delay=".5s">
                 <div class="cart box_1">
-                    <a href="cart">
+                    <a href="/cart">
                         <h3> <div class="total">
                                 <span class="simpleCart_total"></span></div>
                             <img src="{{ asset('images/cart.png') }}" alt=""/></h3>
@@ -91,19 +92,16 @@
                         <ul class="nav navbar-nav nav_1">
                             <li><a href="/">Home</a></li>
                             <li class="dropdown mega-dropdown active">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Popular Categories<span class="caret"></span></a>
                                 <div class="dropdown-menu mega-dropdown-menu">
                                     <div class="container-fluid">
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="men">
                                                 <ul class="nav-list list-inline">
-                                                    <li><a href="women.html"><img src="images/t7.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="women.html"><img src="images/t8.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="women.html"><img src="images/t9.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="women.html"><img src="images/t11.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="women.html"><img src="images/t1.jpg" class="img-responsive" alt=""/></a></li>
-                                                    <li><a href="women.html"><img src="images/t12.jpg" class="img-responsive" alt=""/></a></li>
+                                                    @foreach($categories as $category)
+                                                    <li><a href="/category/{{$category->id}}"><img src="{{$category->img}}" class="img-responsive" alt=""/></a></li>
+                                                    @endforeach
                                                 </ul>
                                             </div>
                                         </div>
@@ -113,8 +111,8 @@
                                 </div>
                             </li>
                            <li><a href="/catalog">Catalog</a></li>
-                           <li class="last"><a href="contact.html">Contact Us</a></li>
-                            <li><a href="login">Log In</a></li>
+                           <li class="last"><a href="/">Contact Us</a></li>
+                            <li><a href="/login">Log In</a></li>
                         </ul>
                     </div>
 

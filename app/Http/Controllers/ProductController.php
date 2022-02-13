@@ -19,11 +19,12 @@ class ProductController extends Controller
     }
 
     public function product($id) {
+        $categories = Category::get();
+
         $products = $this->getProducts();
         $product = Product::where('id', $id)->first();
 
-
-        return view('product.single', compact('product'), compact('products'));
+        return view('product.single', compact('product','products', 'categories'));
     }
 
 
