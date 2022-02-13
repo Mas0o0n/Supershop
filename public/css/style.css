@@ -322,6 +322,15 @@ i.glyphicon.glyphicon-phone {
 a.item_add {
  text-decoration: none;
 }
+.item_remove {
+    color: #31b0d5;
+    border:none;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+a.item_remove {
+    text-decoration: none;
+    }
 .grid_1 img{
 	margin-bottom:1em;
 }

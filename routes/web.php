@@ -23,6 +23,7 @@ Route::get('/', 'SiteController@index')->name('home');
 
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/cart/add/{id}', 'CartController@cartAdd')->name('cart-add');
+Route::post('/cart/remove/{id}', 'CartController@cartRemove')->name('cart-remove');
 
 Route::get('/catalog', 'CatalogController@index')->name('catalog');
 Route::get('/category/{id}/{page?}', 'CatalogController@category')->where('id', '[0-9]+' )->name('category');

@@ -7,9 +7,9 @@
                 <tr>
                     <th>Item</th>
                     <th>Qty</th>
-                    <th>Prices</th>
-                    <th>Delivery details</th>
-                    <th>Sub total</th>
+                    <th>Price</th>
+                    <th>Summary Cost</th>
+                    <th>Edit</th>
                 </tr>
                 @foreach($order->products as $product)
                 <tr>
@@ -20,13 +20,27 @@
 
                         </div>
                         <div class="clearfix"> </div></td>
-                    <td class="check"><input type="text" value="1" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}"></td>
+                    <td>{{$product->pivot->count}}</td>
                     <td>${{$product->price}}</td>
-                    <td>FREE SHIPPING</td>
-                    <td>$100.00</td>
+                    <td>${{$product->costForCount()}}</td>
+                    <td> <form action="{{ route('cart-add', $product->id )}}" method="POST">
+                            <button type="submit" class="item_add">+</button>
+                        @csrf
+                        </form>
+                        <form action="{{ route('cart-remove', $product->id )}}" method="POST">
+                            <button type="submit" class="item_remove">-</button>
+                        @csrf
+                        </form>
+                    </td>
+
                 </tr>
                 @endforeach
+                <tr>
+                    <td colspan="3">Total Cost</td>
+                    <td>{{ $order->getTotalCost() }}</td>
+                </tr>
                 </table>
+
             <a href="#" class=" to-buy">PROCEED TO BUY</a>
             <div class="clearfix"> </div>
         </div>

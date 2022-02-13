@@ -29,11 +29,40 @@ class CartController extends Controller
        } else {
            $order = Order::find($orderId);
        }
-        $order->products()->attach($productId);
 
+       if ($order->products->contains($productId)) {
+            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
+           $pivotRow->count++;
+           $pivotRow->update();
 
-       return view('cart.index', compact('order', 'categories'));
+       } else {
+           $order->products()->attach($productId);
+       }
 
+        return redirect()->route('cart');
+       }
+
+    public function cartRemove($productId) {
+        $categories = Category::get();
+
+        $orderId = session('orderId');
+        if (is_null($orderId)) {
+        return view('cart.index');
+        }
+        $order = Order::find($orderId);
+
+        if ($order->products->contains($productId)) {
+            $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
+            if ($pivotRow->count < 2 ) {
+                $order->products()->detach($productId);
+            }else {
+                $pivotRow->count--;
+                $pivotRow->update();
+            }
+
+        }
+
+        return redirect()->route('cart');
 
     }
 
