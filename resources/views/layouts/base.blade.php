@@ -99,7 +99,7 @@
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="men">
                                                 <ul class="nav-list list-inline">
-                                                    @foreach($categories as $category)
+                                                   @foreach($categories as $category)
                                                     <li><a href="/category/{{$category->id}}"><img src="{{$category->img}}" class="img-responsive" alt=""/></a></li>
                                                     @endforeach
                                                 </ul>
@@ -158,7 +158,14 @@
     </div>
 </div>
 @show
+<div class="container">
+    <div class="starter-template>">
+        @if(session()->has('success'))
+            <p class="alert alert-success">{{session()->get('success')}}</p>
+            @endif
 
+    </div>
+    </div>
 
 <!--content-->
 @yield('content')

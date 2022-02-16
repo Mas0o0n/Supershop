@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => env('SESSION_DRIVER', 'file'), // был file/ can be 'array' for testing
 
     /*
     |--------------------------------------------------------------------------

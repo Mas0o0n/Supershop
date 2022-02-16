@@ -11,8 +11,9 @@
                     <th>Summary Cost</th>
                     <th>Edit</th>
                 </tr>
+                @if (!is_null($order))
                 @foreach($order->products as $product)
-                <tr>
+                        <tr>
                     <td class="ring-in"><a href="{{ route('product', $product->id )}}" class="at-in"><img src="{{ asset("$product->image") }}" class="img-responsive" alt=""></a>
                         <div class="sed">
                             <h5>{{$product->name}}</h5>
@@ -32,17 +33,25 @@
                         @csrf
                         </form>
                     </td>
-
                 </tr>
-                @endforeach
+                    @endforeach
                 <tr>
                     <td colspan="3">Total Cost</td>
                     <td>{{ $order->getTotalCost() }}</td>
                 </tr>
                 </table>
-
-            <a href="#" class=" to-buy">PROCEED TO BUY</a>
+            <a href="{{route('cart-confirm')}}" class=" to-buy">PROCEED TO BUY</a>
             <div class="clearfix"> </div>
+
+            @else {{'Your cart is empty!'}}
+        <div>
+            <a href="{{route('home')}}" class=" to-buy">PROCEED TO BUY</a>
+            <div class="clearfix"> </div>
+        </div>
+        </div>
+        @endif
+
         </div>
     </div>
 @endsection
+

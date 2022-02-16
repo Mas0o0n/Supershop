@@ -15,6 +15,8 @@ class CartController extends Controller
 
         if(!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
+        } else {
+            $order = null;
         }
         return view('cart.index', compact('categories','order'));
     }
@@ -23,6 +25,7 @@ class CartController extends Controller
         $categories = Category::get();
 
         $orderId = session('orderId');
+
        if (is_null($orderId)) {
            $order = Order::create()->id;
               session(['orderId' => $order]);
@@ -30,7 +33,7 @@ class CartController extends Controller
            $order = Order::find($orderId);
        }
 
-       if ($order->products->contains($productId)) {
+    if ($order->products->contains($productId)) {
             $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
            $pivotRow->count++;
            $pivotRow->update();
@@ -61,9 +64,43 @@ class CartController extends Controller
             }
 
         }
-
         return redirect()->route('cart');
+    }
+
+    public function confirmOrder()
+    {
+        $orderId = session('orderId');
+        $categories = Category::get();
+        if (is_null($orderId)) {
+            return redirect()->route('home');
+        }
+
+        $order = Order::find($orderId);
+
+        return view('cart.confirm', compact ('order','categories'));
+    }
+
+    public function saveOrder(Request $request) {
+        $orderId = session('orderId');
+        $categories = Category::get();
+        if (is_null($orderId)) {
+            return redirect()->route('home');
+        }
+        $order = Order::find($orderId);
+        $success = $order->saveOrder($request->name, $request->phonenumber, $request->comment);
+
+        if ($success) {
+            session()->flash('success', 'Your order confirmed! We will call you!');
+        } else {
+            session()->flash('warning', 'Error occured');
+        }
+
+
+
+        return redirect(route('home'));
 
     }
+
+
 
 }
