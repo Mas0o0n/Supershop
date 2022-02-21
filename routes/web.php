@@ -4,6 +4,7 @@ use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 use \Illuminate\Support\Facades\Auth;
 use App\Http\Controllers;
+use App\Http\Controllers\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,8 +24,11 @@ use App\Http\Controllers;
 Auth::routes([
     'password.confirm' => false,
     'password.reset' => false,
-    'password.request ' => false,
+    'password.request' => false,
     ]);
+Route::group(['middleware'=>'is_admin'], function() {
+    Route::get('/orders', 'Admin\OrderController@index')->name('home');
+});
 
 Route::get('/', 'SiteController@index')->name('site');
 
@@ -41,4 +45,6 @@ Route::get('/category/{id}/{page?}', 'CatalogController@category')->where('id', 
 Route::get('/product/{id}', 'ProductController@product')->where('id', '[0-9]+')->name('product');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@logout')->name('get-logout');
+
+

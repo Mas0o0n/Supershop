@@ -112,7 +112,12 @@
                             </li>
                            <li><a href="/catalog">Catalog</a></li>
                            <li class="last"><a href="/">Contact Us</a></li>
-                            <li><a href="/login">Log In</a></li>
+                            @guest
+                                <li><a href="{{route('login')}}">Log In</a></li>
+                            @endguest
+                            @auth
+                              <li><a href="{{route('get-logout')}}">Log Out</a></li>
+                            @endauth
                         </ul>
                     </div>
 

@@ -35,7 +35,10 @@ return $this->belongsToMany(Product::class)->withPivot('count')->withTimestamps(
          $this->save();
          session()->forget('orderId');
          return true;
-
      }
+
+  /*  public function user() {
+        return $this->belongsTo(User::class);
+    }*/
 
 }

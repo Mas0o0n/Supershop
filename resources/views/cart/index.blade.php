@@ -45,7 +45,7 @@
 
             @else {{'Your cart is empty!'}}
         <div>
-            <a href="{{route('home')}}" class=" to-buy">PROCEED TO BUY</a>
+            <a href="{{ route('site' )}}" class=" to-buy">PROCEED TO BUY</a>
             <div class="clearfix"> </div>
         </div>
         </div>
@@ -54,4 +54,3 @@
         </div>
     </div>
 @endsection
-
