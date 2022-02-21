@@ -64,6 +64,8 @@
             <div class="col-sm-2 number animated wow fadeInRight" data-wow-delay=".5s">
                 <span><i class="glyphicon glyphicon-phone"></i>085 596 234</span>
                 <p>Call us</p>
+                <a href="{{ route('categories.index') }}" ><p>Admin Panel</p></a>
+
             </div>
             <div class="col-sm-2 search animated wow fadeInRight" data-wow-delay=".5s">
                 <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a>

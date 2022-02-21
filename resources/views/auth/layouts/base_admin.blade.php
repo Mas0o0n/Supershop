@@ -72,7 +72,7 @@
                         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                             <ul class="nav navbar-nav nav_1">
                                 <li><a href="{{ route('home') }}">Home</a></li>
-                                <li><a href="#">Categories</a></li>
+                                <li><a href="{{route('categories.index')}}">Categories</a></li>
                                 <li class="last"><a href="#">Products</a></li>
                                 @guest
                                     <li><a href="{{route('login')}}">Log In</a></li>

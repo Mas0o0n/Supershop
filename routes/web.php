@@ -26,8 +26,15 @@ Auth::routes([
     'password.reset' => false,
     'password.request' => false,
     ]);
-Route::group(['middleware'=>'is_admin'], function() {
-    Route::get('/orders', 'Admin\OrderController@index')->name('home');
+
+Route::group([
+    'middleware' => 'is_admin',
+    'namespace' => 'Admin',
+    'prefix' => 'admin'
+
+], function() {
+    Route::get('/orders', 'OrderController@index')->name('home');
+    Route::resource('categories', 'CategoryController');
 });
 
 Route::get('/', 'SiteController@index')->name('site');

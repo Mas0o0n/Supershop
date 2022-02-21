@@ -8,7 +8,7 @@
                 <div class="price">
                     <h5 class="item_price">${{$product->price}}</h5>
                     <form action="{{ route('cart-add', $product->id )}}" method="POST">
-                        <button type="submit" class="item_add">Add To Cart</button>
+                        <button type="submit" class="btn item_add">Add To Cart</button>
                     @csrf
                     </form>
                         <div class="clearfix"> </div>

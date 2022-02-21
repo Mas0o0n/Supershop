@@ -15,16 +15,16 @@
                 </tr>
                    @foreach($orders as $order)
                         <tr>
-                            <td><h5>{{ $order->id }}</h5>
+                            <td><h4>{{ $order->id }}</h4>
                             </td>
-                            <td><h5>{{ $order->user_id }}</h5>
+                            <td><h4>{{ $order->user_id }}</h4>
                             </td>
-                            <td><h5>{{ $order->name }}</h5>
+                            <td><h4>{{ $order->name }}</h4>
                                  </td>
                             <td>{{ $order->phone }}</td>
                             <td>{{ $order->updated_at->format('H:i d/m/Y') }}</td>
                             <td>${{ $order->getTotalCost() }}</td>
-                            <td> <a href="{{''}}" class=" to-buy">Open</a>
+                            <td> <a href="{{''}}" class="btn to-buy">Open</a>
                             </td>
                         </tr>
                     @endforeach
