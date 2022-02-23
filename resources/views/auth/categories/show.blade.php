@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>Category Image</td>
-                    <td><img src="{{ $category->img }}" class="img-responsive" alt=""/></td>
+                    <td><img src="{{ Storage::url($category->img) }}" class="img-responsive" alt=""/></td>
                 </tr>
                 </tbody>
             </table>

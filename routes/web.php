@@ -35,6 +35,7 @@ Route::group([
 ], function() {
     Route::get('/orders', 'OrderController@index')->name('home');
     Route::resource('categories', 'CategoryController');
+    Route::resource('products', 'ProductController');
 });
 
 Route::get('/', 'SiteController@index')->name('site');

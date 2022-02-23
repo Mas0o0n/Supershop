@@ -48,7 +48,7 @@
         <div class="header-top">
             <div class="container">
                 <div class="col-sm-4 logo animated wow fadeInLeft" data-wow-delay=".5s">
-                    <h1><a href="/">Super<span>Shop</span></a></h1>
+                    <h1><a href="/"><span>Back to </span>SuperShop</a></h1>
                 </div>
             </div>
         </div>
@@ -72,8 +72,8 @@
                         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                             <ul class="nav navbar-nav nav_1">
                                 <li><a href="{{ route('home') }}">Home</a></li>
-                                <li><a href="{{route('categories.index')}}">Categories</a></li>
-                                <li class="last"><a href="#">Products</a></li>
+                                <li><a href="{{ route('categories.index' )}}">Categories</a></li>
+                                <li class="last"><a href="{{ route('products.index' )}}">Products</a></li>
                                 @guest
                                     <li><a href="{{route('login')}}">Log In</a></li>
                                 @endguest
