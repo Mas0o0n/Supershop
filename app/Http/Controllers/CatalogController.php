@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 class CatalogController extends Controller
 {
 
-
     public function getCategories() {
     $categories = Category::get();
     return $categories;

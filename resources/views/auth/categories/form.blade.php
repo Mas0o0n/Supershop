@@ -27,12 +27,18 @@
                             <div class="col-md-4 in-contact">
                                 <div class="col-md-9 in-contact">
                                 <span>Category Name</span>
+                                    @error('name')
+                                    <div class="alert alert-danger">{{$message}}</div>
+                                    @enderror
                                 <input type="text" name="name" value="@isset($category){{ $category->name }} @endisset">
                                 </div></div>
                                 <br>
                             <div class="col-md-5 in-contact">
                                 <span>Image</span>
-                                <input type="file" name="img" >
+                                @isset($category)
+                                <img src="{{ Storage::url($category->img) }}" class="img-responsive" alt=""/>
+                                @endisset
+                                <br> <input type="file" name="img" ></div>
 
                             <div class="clearfix"> </div>
                         </div>

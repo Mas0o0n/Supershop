@@ -18,7 +18,7 @@
                 <div class="flexslider">
                     <ul class="slides">
                         <div data-thumb="images/si.jpg">
-                            <div class="thumb-image"> <img src="{{ asset("$product->image") }}" data-imagezoom="true" class="img-responsive"> </div>
+                            <div class="thumb-image"> <img src="{{ Storage::url($product->image) }}" data-imagezoom="true" class="img-responsive"> </div>
                         </div>
                     </ul>
                 </div>

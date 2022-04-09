@@ -9,11 +9,6 @@
                 <tr>
                     <th>Field</th>
                     <th>Context</th>
-
-                <tr>
-                    <td>ID</td>
-                    <td><h5>{{ $product->id}}</h5></td>
-                </tr>
                 <tr>
                     <td>Product Brand</td>
                     <td><h5>{{ $product->brand }}</h5></td>
@@ -40,7 +35,7 @@
                 </tr>
                 <tr>
                     <td>Category Image</td>
-                    <td><img src="{{ Storage::url($product->img) }}" class="img-responsive" alt=""/></td>
+                    <td><img src="{{ Storage::url($product->image) }}" class="img-responsive" alt=""/></td>
                 </tr>
                 </tbody>
             </table>

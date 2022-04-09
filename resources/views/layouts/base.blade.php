@@ -102,7 +102,9 @@
                                             <div class="tab-pane active" id="men">
                                                 <ul class="nav-list list-inline">
                                                    @foreach($categories as $category)
-                                                    <li><a href="/category/{{$category->id}}"><img src="{{$category->img}}" class="img-responsive" alt=""/></a></li>
+                                                        @if ( $category->id <= 6 )
+                                                    <li><a href="/category/{{$category->id}}"><img src=" {{ Storage::url($category->img) }}" class="img-responsive" alt=""/></a></li>
+                                                        @endif
                                                     @endforeach
                                                 </ul>
                                             </div>

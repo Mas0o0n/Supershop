@@ -2,7 +2,7 @@
         <div class="col-md-4 col-md4">
             <div class="col-md1 simpleCart_shelfItem product-wrapper">
                 <a href="/product/{{$product->id}}">
-                    <img class="img-responsive" src="{{ asset("$product->image") }}" alt="" />
+                    <img class="img-responsive" src="{{ Storage::url($product->image) }}" alt="" />
                 </a>
                 <h3><a href="/product/{{$product->id}}">{{$product->name}}</a></h3>
                 <div class="price">
