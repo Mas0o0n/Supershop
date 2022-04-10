@@ -44,12 +44,20 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request)
     {
-        $path = $request->file('image')->store('products');
         $params = $request->all();
-        $params['image'] = $path;
+        unset($params['image']);
+
+        if ($request->has('image')) {
+            $path = $request->file('image')->store('products');
+            $params['image'] = $path;
+        }
+       /* $path = $request->file('image')->store('products');
+        $params = $request->all();
+        $params['image'] = $path;*/
 
         Product::create($params);
-        return redirect()->route('products.index');
+
+       return redirect()->route('products.index');
     }
 
     /**
@@ -84,12 +92,25 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-        Storage::delete($product->image);
+
+        $params = $request->all();
+        unset($params['image']);
+
+        if($request->has('image')) {
+            Storage::delete($product->image);
+            $path = $request->file('image')->store('products');
+            $params['image'] = $path;
+        }
+
+        $product->update($params);
+        return redirect()->route('products.index');
+
+        /*Storage::delete($product->image);
         $path = $request->file('image')->store('products');
         $params = $request->all();
         $params['image'] = $path;
         $product->update($params);
-        return redirect()->route('products.index');
+        return redirect()->route('products.index');*/
     }
 
     /**

@@ -23,14 +23,21 @@ class ProductRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
+
             'brand' => 'required|min:3|max:255',
             'name' => 'required|min:3|max:255',
             'description' => 'required|min:3|max:255',
-            'code' => 'required|min:2|max:255|unique:products,code',
+            'code' => 'required|min:2|max:255',
             'price' => 'required|numeric||min:1',
-            'image' => 'required|min:3|max:255',
+
 
         ];
+       if ($this->route()->name(products.store)) {
+          $rules['code'] .= '|unique:products,code';
+          $rules['image'] .= '|unique:products,image';
+       }
+       return $rules;
     }
 }

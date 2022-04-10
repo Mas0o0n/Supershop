@@ -28,14 +28,24 @@
                     <th>Context</th>
                 <tr>
                     <td>Product Brand</td>
+                    @error('brand')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                     <td><div class="col-md-1 "><input type="text" size="50" name="brand" value="@isset($product){{ $product->brand }} @endisset"></div></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Product Name</td>
+                    @error('name')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                     <td><div class="col-md-9 "><input type="text" size="50" name="name" value="@isset($product){{ $product->name }} @endisset"></div></td>
                 </tr>
                 <tr>
                     <td>Product Description</td>
+                    @error('description')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                     <td><div class="col-md-9 "><textarea  name="description" rows="10" cols="48" >@isset($product){{ $product->description }} @endisset</textarea></div></td>
                 </tr>
                 <tr>
@@ -53,16 +63,25 @@
                                 </option>
                              @endforeach
                        </select></td>
-                    </tr>
+                </tr>
                 <td>Product Code</td>
+                @error('code')
+                <div class="alert alert-danger">{{$message}}</div>
+                @enderror
                 <td><div class="col-md-1 "><input type="text" size="15" name="code" value="@isset($product){{ $product->code }} @endisset"></div></td>
                 </tr>
                 <tr>
                     <td>Product Price, $</td>
+                    @error('price')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                     <td><div class="col-md-1 "><input type="text" size="15" name="price" value="@isset($product){{ $product->price }} @endisset"></div></td>
                 </tr>
                 <tr>
                     <td>Product Image</td>
+                    @error('image')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                     <td>@isset($product)
                         <img src="{{ Storage::url($product->image) }}" class="img-responsive" alt=""/></td>
                     @endisset
@@ -73,7 +92,9 @@
                    <td><input type="file" name="image" ></td>
                 </tr>
                 @endisset
+
                 </tbody>
+
             </table>
                     <div class="clearfix"> </div>
                     @csrf

@@ -34,7 +34,7 @@
                     <td><h5>{{ $product->price }} $</h5></td>
                 </tr>
                 <tr>
-                    <td>Category Image</td>
+                    <td>Product Image</td>
                     <td><img src="{{ Storage::url($product->image) }}" class="img-responsive" alt=""/></td>
                 </tr>
                 </tbody>

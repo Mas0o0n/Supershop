@@ -23,6 +23,7 @@
                             @method('PUT')
                         @endisset
                         @csrf
+
                         <div class="contact-bottom">
                             <div class="col-md-4 in-contact">
                                 <div class="col-md-9 in-contact">
