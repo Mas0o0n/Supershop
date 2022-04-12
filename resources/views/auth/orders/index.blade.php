@@ -24,7 +24,7 @@
                             <td>{{ $order->phone }}</td>
                             <td>{{ $order->updated_at->format('H:i d/m/Y') }}</td>
                             <td>${{ $order->getTotalCost() }}</td>
-                            <td> <a href="{{''}}" class="btn to-buy">Open</a>
+                            <td> <a href="{{ route('order-show', $order->id) }}" class="btn to-buy">Open</a>
                             </td>
                         </tr>
                     @endforeach

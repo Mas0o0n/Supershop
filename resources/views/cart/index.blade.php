@@ -14,7 +14,7 @@
                 @if (!is_null($order))
                 @foreach($order->products as $product)
                         <tr>
-                    <td class="ring-in"><a href="{{ route('product', $product->id )}}" class="at-in"><img src="{{ asset("$product->image") }}" class="img-responsive" alt=""></a>
+                    <td class="ring-in"><a href="{{ route('product', $product->id )}}" class="at-in"><img src="{{ Storage::url($product->image) }}" class="img-responsive" alt=""></a>
                         <div class="sed">
                             <h5>{{$product->name}}</h5>
                             <p></p>
